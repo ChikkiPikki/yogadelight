@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="555.036" height="178.385" viewBox="0 0 555.036 178.385">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        font-family: Comfortaa-Light, Comfortaa;
+        font-size: 72px;
+        font-weight: 300;
+      }
+
+      .cls-2 {
+        fill: #f7aab2;
+      }
+
+      .cls-3 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <text class="cls-1" transform="translate(84.04 96.08) rotate(4.958)"><tspan x="0" y="0">Y</tspan></text>
+  <text class="cls-1" transform="translate(118.931 99.296) rotate(8.273)"><tspan x="0" y="0">o</tspan></text>
+  <text class="cls-1" transform="translate(164.675 105.874) rotate(3.818)"><tspan x="0" y="0">g</tspan></text>
+  <text class="cls-1" transform="translate(209.848 108.69) rotate(1.626)"><tspan x="0" y="0">a</tspan></text>
+  <text class="cls-1" transform="translate(259.92 109.26) rotate(-7.312)"><tspan x="0" y="0"> </tspan></text>
+  <text class="cls-1" transform="translate(283.996 106.244) rotate(-12.813)"><tspan x="0" y="0">D</tspan></text>
+  <text class="cls-1" transform="translate(328.556 95.448) rotate(-10.887)"><tspan x="0" y="0">e</tspan></text>
+  <text class="cls-1" transform="translate(370.849 87.77) rotate(-4.653)"><tspan x="0" y="0">l</tspan></text>
+  <text class="cls-1" transform="translate(383.332 86.561) rotate(-.647)"><tspan x="0" y="0">i</tspan></text>
+  <text class="cls-1" transform="translate(396.216 85.047) rotate(8.071)"><tspan x="0" y="0">g</tspan></text>
+  <text class="cls-1" transform="translate(439.429 91.444) rotate(19.288)"><tspan x="0" y="0">h</tspan></text>
+  <text class="cls-1" transform="translate(475.578 104.369) rotate(25.004)"><tspan x="0" y="0">t</tspan></text>
+  <path class="cls-2" d="m85.353,117.103c-16.811-13.526-26.138-36.524-23.985-58.184,1.991-20.598,13.576-39.822,30.887-51.402,43.962-30.28,115.159,42.313,157.58,18.127,2.8-1.512,5.352-3.443,7.22-5.883,3.702-4.742,4.65-12.789-.96-16.549-2.555-1.879-6.277-2.554-9.29-.818,1.337-1.05,3.085-1.67,4.856-1.651,5.638-.125,10.554,4.697,10.913,10.305,1.061,11.828-10.171,19.617-20.064,23.178-17.068,5.942-35.469.977-51.961-4.182-12.997-4.182-25.622-9.351-38.466-13.687-17.36-5.737-39.28-12.493-55.177-1.708-5.408,3.349-10.182,7.704-14.398,12.53-22.556,25.85-20.524,64.935,2.844,89.923h0Z"/>
+  <path class="cls-3" d="m345.152,8.159l2.747,10.178c1.152-1.08,2.304-2.161,3.456-3.241"/>
+  <path class="cls-2" d="m307.599,129.747c35.353-20.235,77.2-25.868,115.921-11.909,14.766,4.909,29.108,11.54,44.498,13.061,14.995,1.42,30.354-1.959,44.043-7.984,13.437-6.217,24.856-17.109,28.741-31.645,6.953-25.512-5.028-54.91-26.242-70.378-9.467-6.913-20.669-11.315-32.215-13.338,7.901.475,15.766,2.275,23.208,5.276,30.636,12.016,49.945,48.11,42.015,80.275-3.9,16.588-17.036,29.93-32.173,36.88-15.096,6.876-31.677,10.413-48.183,8.681-16.28-1.626-31.037-8.799-45.994-14.227-38.37-14.686-76.323-10.761-113.618,5.309h0Z"/>
+</svg>

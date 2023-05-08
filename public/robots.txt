@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /927bbf155fb7bd4c2e12713ed1a3e9c297f62cc57d838bcbf15b96b2e1fbf2bd
+Sitemap: https://yogadelight.org/sitemap.xml
