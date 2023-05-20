@@ -20,6 +20,7 @@ module.exports = {
       '9xl': ['8rem', { lineHeight: '1' }],
     },
     extend: {
+
       colors: {
         background: "#ffffff",
         primary: {
@@ -46,8 +47,9 @@ module.exports = {
         '4xl': '2rem',
       },
       fontFamily: {
-        sans: ['Inter', ...defaultTheme.fontFamily.sans],
-        display: ['Inter', ...defaultTheme.fontFamily.sans],
+        sans: ['Cinzel', 'sans-serif'],
+        display: ['Cinzel', ...defaultTheme.fontFamily.sans],
+        heading: ['Cinzel', 'serif']
       },
       maxWidth: {
         '2xl': '40rem',

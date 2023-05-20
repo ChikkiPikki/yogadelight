@@ -1,4 +1,5 @@
 import { XMarkIcon } from '@heroicons/react/20/solid'
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
 
@@ -21,7 +22,6 @@ export function Banner({ children, time }) {
 
   const getTime = () => {
     const time = Date.parse(deadline) - Date.now();
-
     setDays(Math.floor(time / (1000 * 60 * 60 * 24)));
     setHours(Math.floor((time / (1000 * 60 * 60)) % 24));
     setMinutes(Math.floor((time / 1000 / 60) % 60));
@@ -43,12 +43,12 @@ export function Banner({ children, time }) {
           <p className="text-sm leading-6">
             Hurry up! Limited time offer for {days} {hours} {minutes} {seconds}
           </p>
-          <a
-            href="#"
+          <Link
+            href="/#join"
             className="flex-none rounded-full bg-gray-900 px-3.5 py-1 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"
           >
             Register now <span aria-hidden="true">&rarr;</span>
-          </a>
+          </Link>
         </div>
         <div className={`flex flex-1 justify-end`} >
           <button type="button" className="-m-3 p-3 focus-visible:outline-offset-[-4px]" onClick={handleClick}>

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
+import Link from 'next/link'
 const navigation = [
   { name: 'About', href: '/#about' },
   { name: 'Reviews', href: '/#reviews' },
@@ -19,7 +20,7 @@ export function Header() {
           <div className="flex lg:flex-1 p-2.5">
             <a href="#" className="flex">
               <span className="sr-only">Yoga Delight</span>
-              <Image className="h-16 md:h-20 lg:h-24 w-auto" height={1000} width={1000} src="/logo.svg" alt="" />
+              <Image className="h-16 w-auto" height={1000} width={1000} src="/logo.svg" alt="" />
             </a>
           </div>
           <div className="flex lg:hidden">
@@ -34,9 +35,9 @@ export function Header() {
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
             {navigation.map((item) => (
-              <a key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-background">
+              <Link key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-background">
                 {item.name}
-              </a>
+              </Link>
             ))}
           </div>
         </nav>
@@ -67,13 +68,13 @@ export function Header() {
               <div className="-my-6 divide-y divide-gray-500/10">
                 <div className="space-y-2 py-6">
                   {navigation.map((item) => (
-                    <a
+                    <Link
                       key={item.name}
                       href={item.href}
                       className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                     >
                       {item.name}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>

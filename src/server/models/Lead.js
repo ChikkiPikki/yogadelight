@@ -6,6 +6,7 @@ import { Schema, model, models } from "mongoose";
 const LeadSchema = new Schema({
   firstName: String,
   phone: String,
+  batch: String,
   date: Date,
 });
 

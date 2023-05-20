@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <>
       <Banner />
-      <Header />
+      {/* <Header /> */}
       <Hero />
       <LeadModal />
       <RachanaShah />
