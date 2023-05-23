@@ -1,16 +1,48 @@
-import { BuildingOffice2Icon, EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
 import axios from 'axios'
+import { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeFormDisplay, changeThanksAnimation } from "@/store/index";
 import { Container } from './Container';
-// import { CircleLoader } from './CircleLoader';
-import Link from "next/link"
+import ContentLoader from 'react-content-loader'
+import Select from 'react-select'
 import Image from 'next/image';
 
+const options = [
+  { value: '6 to 7 morning', label: '6 to 7 morning (batch full)', disabled: true },
+  { value: '7 to 8 morning', label: '7 to 8 morning (3 seats left)' },
+  { value: '5 to 6 evening', label: '5 to 6 evening (batch full)', disabled: true },
+  { value: '6 to 7 evening', label: '6 to 7 evening (2 seats left)' }
+
+]
 
 
 export function Form() {
+
+  const [days, setDays] = useState(0);
+  const [hours, setHours] = useState(0);
+  const [minutes, setMinutes] = useState(0);
+  const [seconds, setSeconds] = useState(0);
+
+  const [hidden, setHidden] = useState("")
+
+  const deadline = "May, 31, 2023";
+
+  const getTime = () => {
+    const time = Date.parse(deadline) - Date.now();
+    setDays(Math.floor(time / (1000 * 60 * 60 * 24)));
+    setHours(Math.floor((time / (1000 * 60 * 60)) % 24));
+    setMinutes(Math.floor((time / 1000 / 60) % 60));
+    setSeconds(Math.floor((time / 1000) % 60));
+  };
+
+  useEffect(() => {
+    const interval = setInterval(() => getTime(deadline), 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   const state = useSelector((state) => state.form)
+  const [selectedOption, setSelectedOption] = useState(null)
   console.log(state)
   const dispatch = useDispatch()
   const handleSubmit = async (event) => {
@@ -19,6 +51,7 @@ export function Form() {
     const reqBody = {
       firstName: event.target.firstName.value,
       lastName: event.target.lastName?.value,
+      batch: selectedOption.value,
       phone: event.target.phone.value,
       requirements: event.target.requirements?.value,
       email: event.target.email?.value
@@ -28,11 +61,28 @@ export function Form() {
   return (
     <div className="relative isolate bg-blue-dark mx-auto" id="join">
       <div className="mx-auto grid max-w-full grid-cols-1 lg:grid-cols-2">
+
         <div className='-order-1'>
+
           {
             state.formDisplay &&
-            <form action="" method="POST" onSubmit={handleSubmit} id="cta-form" className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
+            <form action="" method="POST" onSubmit={handleSubmit}
+              id="cta-form"
+              className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
               <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
+                <Image src="/Logo.svg" alt="Yoga Delight" height={1000} width={1000} className="w-64" />
+
+                <div className="mx-auto text-white max-w-3xl py-10">
+                  <h1 className='font-heading text-4xl py-5'>
+                    Join now
+                  </h1>
+                  <p className='py-4'>
+                    Lose weight, get fit, and find peace.
+                  </p>
+                  <p className='pb-4'>
+                    Only 5 seats left! Limited time offer for {days} days {hours} hours
+                  </p>
+                </div>
                 <div className="grid justify-evenly grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                   <div>
                     <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-white">
@@ -62,6 +112,22 @@ export function Form() {
                       />
                     </div>
                   </div>
+                  <div className="sm:col-span-2">
+                    <label htmlFor="batch" className="block text-sm font-semibold leading-6 text-white">
+                      Your preferred batch
+                    </label>
+                    <div className="mt-2.5">
+                      <div className="App">
+                        <Select
+                          defaultValue={selectedOption}
+                          onChange={setSelectedOption}
+                          options={options}
+                          isSearchable={false}
+                          isOptionDisabled={(option) => option.disabled}
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <div className="mt-8 flex justify-end">
                   <button
@@ -76,15 +142,31 @@ export function Form() {
           }
           {
             state.thanksAnimation &&
-            <Container className="text-white px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48"><p className="text-3xl font-bold">Thank you</p><p className="mt-6 text-lg leading-8 text-gray-300">
-              Your request has been received. We will get in touch with you shortly. Meanwhile, be sure to check out our porfolio and blog below.
-            </p>
+            <Container
+              className="text-white px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
+              <p className="text-3xl font-bold">
+                Thank you
+              </p>
+              <p className="mt-6 text-lg leading-8 text-gray-300">
+                Your phone number has been received. Rachana ma&apos;am will get in touch with you shortly.
+              </p>
             </Container>
           }
           {
             !state.thanksAnimation && !state.formDisplay &&
             <Container className="text-white px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg-py-48">
-              {/* <CircleLoader /> */}
+              <ContentLoader
+                speed={3}
+                width={400}
+                height={160}
+                viewBox="0 0 400 160"
+                backgroundColor="white"
+                foregroundColor="blue"
+              >
+                <rect x="48" y="8" rx="3" ry="3" width="88" height="6" />
+                <rect x="48" y="26" rx="3" ry="3" width="52" height="6" />
+                <rect x="48" y="46" rx="3" ry="3" width="150" height="6" />
+              </ContentLoader>
             </Container>
           }
         </div>
@@ -99,7 +181,7 @@ export function Form() {
             </div>
 
             <div className="relative sm:my-10 lg:my-0 lg:col-span-5 lg:-mr-8">
-              <img
+              <Image
                 height={1000}
                 width={1000}
                 className=""
@@ -107,8 +189,6 @@ export function Form() {
                 alt=""
               />
             </div>
-
-
           </div>
         </div>
       </div>

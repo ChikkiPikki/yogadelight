@@ -1,24 +1,46 @@
 import { CheckIcon } from '@heroicons/react/20/solid'
+import Link from 'next/link'
+import { useState, useEffect } from 'react';
 
 const includedFeatures = [
   'Yogic Aasanas',
+  'Yoga for weight loss',
   'Weight loss exercises',
   'Meditation sessions',
   'Stretching and warm-up',
   'Classical Yogic theory',
   'Only six ladies per batch',
-  'Yoga for weight loss',
   'Diet plans'
 ]
 
 export function Pricing() {
+  const [days, setDays] = useState(0);
+  const [hours, setHours] = useState(0);
+  const [minutes, setMinutes] = useState(0);
+  const [seconds, setSeconds] = useState(0);
+
+  const [hidden, setHidden] = useState("")
+  const deadline = "May, 31, 2023";
+
+  const getTime = () => {
+    const time = Date.parse(deadline) - Date.now();
+    setDays(Math.floor(time / (1000 * 60 * 60 * 24)));
+    setHours(Math.floor((time / (1000 * 60 * 60)) % 24));
+    setMinutes(Math.floor((time / 1000 / 60) % 60));
+    setSeconds(Math.floor((time / 1000) % 60));
+  };
+  useEffect(() => {
+    const interval = setInterval(() => getTime(deadline), 1000);
+
+    return () => clearInterval(interval);
+  }, []);
   return (
     <div className="bg-blue-dark py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl sm:text-center">
           <h2 className="text-3xl font-bold text-white sm:text-4xl">Free Sessions!</h2>
           <p className="mt-6 text-lg leading-6 text-gray-50">
-            Join before or on 31 May, and get access to three absolutely free yoga sessions with Rachana Shah.
+            Join within {days} days {hours} hours, and get access to three absolutely free yoga sessions with Rachana Shah.
           </p>
         </div>
         <div className="mx-auto mt-16 bg-primary max-w-2xl rounded-3xl ring-1 ring-gray-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
@@ -54,14 +76,14 @@ export function Pricing() {
                   <span className="text-5xl font-bold tracking-tight text-green-700">₹1,500</span>
                   <span className="text-sm font-semibold leading-6 tracking-wide text-gray-600">per month</span>
                 </p>
-                <a
-                  href="#"
+                <Link
+                  href="/#join"
                   className="mt-10 block w-full rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
-                  Get access
-                </a>
+                  Join Now
+                </Link>
                 <p className="mt-6 text-xs leading-5 text-gray-600">
-                  Invoices and receipts available for easy company reimbursement
+                  Offer valid till 1st June!
                 </p>
               </div>
             </div>

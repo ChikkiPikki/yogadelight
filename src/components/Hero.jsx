@@ -12,11 +12,11 @@ export function Hero() {
               width={1000}
               className="h-24 w-auto mb-5"
               src="/Logo.svg"
-              alt="Your Company"
+              alt="Yoga Delight"
             />
             <div className="sm:mt-16 sm:flex lg:mt-16">
               <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-white ring-1 ring-graphics/50 hover:ring-graphics duration-300">
-                Join today, and avail three FREE trial sessions{' '}
+                Join today, and avail three FREE sessions{' '}
                 <Link href="/#join" className="whitespace-nowrap font-semibold text-indigo-300">
                   <span className="absolute inset-0" aria-hidden="true" />
                   Join <span aria-hidden="true">&rarr;</span>

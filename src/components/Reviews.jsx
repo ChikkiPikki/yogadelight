@@ -8,8 +8,8 @@ function classNames(...classes) {
 
 const testimonials = [
   {
-    name: "Bhavana D.",
-    batch: "5 p.m. evening"
+    name: "Vanshika",
+    batch: "6 a.m. morning"
   },
   {
     name: "Nisha K.",
@@ -20,8 +20,8 @@ const testimonials = [
     batch: "5 p.m. evening"
   },
   {
-    name: "Niharika A.",
-    batch: "7 a.m. morning"
+    name: "Meena M.",
+    batch: "6 a.m. morning"
   },
   {
     name: "Nisha K.",
